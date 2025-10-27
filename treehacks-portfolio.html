@@ -163,6 +163,7 @@
             font-size: 1.1rem;
             line-height: 1.8;
             color: var(--text-secondary);
+            text-align: center;
         }
         
         .focus-areas {
@@ -178,6 +179,7 @@
             border-radius: 8px;
             padding: var(--space-md);
             transition: transform var(--transition-fast), border-color var(--transition-fast);
+            text-align: center;
         }
         
         .focus-card:hover {
@@ -193,7 +195,7 @@
         /* CERTIFICATES GRID */
         .certificates-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: var(--space-lg);
             margin-top: var(--space-lg);
         }
@@ -257,6 +259,7 @@
         
         .certificate-content {
             padding: var(--space-md);
+            text-align: center;
         }
         
         .certificate-content h3 {
@@ -308,6 +311,7 @@
         
         .video-content {
             padding: var(--space-md);
+            text-align: center;
         }
         
         .video-content h3 {
@@ -339,12 +343,14 @@
         .skill-category h3 {
             color: var(--accent-green);
             margin-bottom: var(--space-md);
+            text-align: center;
         }
         
         .skill-tags {
             display: flex;
             flex-wrap: wrap;
             gap: var(--space-xs);
+            justify-content: center;
         }
         
         .skill-tag {
@@ -381,6 +387,7 @@
             justify-content: center;
             gap: var(--space-md);
             margin-top: var(--space-md);
+            flex-wrap: wrap;
         }
         
         .social-links a {
@@ -445,9 +452,11 @@
             
             .nav-links {
                 gap: var(--space-sm);
+                font-size: 0.9rem;
             }
             
-            .videos-grid {
+            .videos-grid,
+            .certificates-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -461,7 +470,7 @@
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#certificates">Certificates</a></li>
-                <li><a href="#videos">Research</a></li>
+                <li><a href="#projects">Projects</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -483,7 +492,7 @@
         <div class="container">
             <h2>About Me</h2>
             <div class="about-content">
-                <p>Medical Sciences Honours student at the University of Sydney specializing in virtual reality applications in vision rehabilitation and healthcare innovation. My research focuses on leveraging emerging technologies to improve quality of life and functional independence for individuals with visual impairments.</p>
+                <p>I am a Medical Sciences Honours student at the University of Sydney, specializing in virtual reality applications in vision rehabilitation and healthcare innovation. My research focuses on leveraging emerging technologies to improve quality of life and functional independence for individuals with visual impairments. I completed my Bachelor of Clinical Science at Macquarie University and am currently pursuing a Bachelor of Medical Science (Honours) as a continuation of my undergraduate degree.</p>
             </div>
             <div class="focus-areas">
                 <div class="focus-card">
@@ -511,23 +520,10 @@
         <div class="container">
             <h2>Certificates & Achievements</h2>
             <div class="certificates-grid">
-                <!-- Certificate 1: NSW Australia Leadership -->
+                <!-- Certificate 1: Judyth Sachs PACE Prize -->
                 <div class="certificate-card">
                     <div class="certificate-image-wrapper">
                         <iframe src="https://drive.google.com/file/d/1Plpv3cfdZULsV7JI9-53BcJsq9a7a-M1/preview" allow="autoplay"></iframe>
-                        <div class="certificate-overlay"></div>
-                        <div class="protect-badge">🔒 Protected</div>
-                    </div>
-                    <div class="certificate-content">
-                        <h3>NSW Australia Leadership</h3>
-                        <p>Leadership certification demonstrating excellence in community engagement and innovation</p>
-                    </div>
-                </div>
-
-                <!-- Certificate 2: Judyth Sachs PACE Prize -->
-                <div class="certificate-card">
-                    <div class="certificate-image-wrapper">
-                        <iframe src="https://drive.google.com/file/d/1kI9rj4ksAf9usvWINVVMQ32YvESmL5xU/preview" allow="autoplay"></iframe>
                         <div class="certificate-overlay"></div>
                         <div class="protect-badge">🔒 Protected</div>
                     </div>
@@ -537,7 +533,7 @@
                     </div>
                 </div>
 
-                <!-- Certificate 3 -->
+                <!-- Certificate 2: NSW Australia Leadership Program -->
                 <div class="certificate-card">
                     <div class="certificate-image-wrapper">
                         <iframe src="https://drive.google.com/file/d/1wT7Dy60fE_sznhl6dZEV-A-jYwA5JUR3/preview" allow="autoplay"></iframe>
@@ -545,27 +541,39 @@
                         <div class="protect-badge">🔒 Protected</div>
                     </div>
                     <div class="certificate-content">
-                        <h3>Achievement Certificate</h3>
-                        <p>Recognition of academic and professional excellence</p>
+                        <h3>NSW Australia Leadership Program</h3>
+                        <p>Leadership program in policy making/changing for youth. Advocated for inequities in rural health.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- VIDEOS/RESEARCH SECTION -->
-    <section id="videos">
+    <!-- PROJECTS SECTION -->
+    <section id="projects">
         <div class="container">
             <h2>Research Projects</h2>
             <div class="videos-grid">
-                <!-- Video 1: VR Shopping Training -->
+                <!-- Project 1: VR Shopping Training -->
                 <div class="video-card">
                     <div class="video-wrapper">
-                        <iframe src="https://drive.google.com/file/d/1Plpv3cfdZULsV7JI9-53BcJsq9a7a-M1/preview" allow="autoplay" allowfullscreen></iframe>
+                        <iframe src="https://drive.google.com/file/d/1kI9rj4ksAf9usvWINVVMQ32YvESmL5xU/preview" allow="autoplay" allowfullscreen></iframe>
                     </div>
                     <div class="video-content">
                         <h3>VR Shopping for Training and Rehabilitation</h3>
-                        <p>Current ongoing Honours thesis: To evaluate perceived impact of a VR-based simulation as a training and assessment tool for older adults with visual impairments, to support functional independence in IADLs and quality of life.</p>
+                        <p>Current ongoing Honours thesis: To evaluate the perceived impact of a VR-based simulation as a training and assessment tool for older adults with visual impairments, to support functional independence in IADLs and quality of life.</p>
+                        <div class="protect-badge" style="position: relative; margin-top: 10px;">🔒 Content Protected</div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Pre-Operative Explainer Videos -->
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <iframe src="https://drive.google.com/file/d/1RS-39LkO_p6jeH_MmvMIpMzhJ8Gw-MQO/preview" allow="autoplay" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-content">
+                        <h3>Pre-Operative Patient Education Video Suite</h3>
+                        <p>Developed a suite of pre-operative explainer videos covering: deciding on surgery, getting ready, getting organized for hospital, hospital stay, and recovery. This evaluation study aims to assess the impact of these videos on key outcomes for elective surgical patients within Sydney Local Health District, including anxiety, decision quality, care experience, and early postoperative recovery. Carers' anxiety and perspectives, as well as clinicians' experiences, are captured qualitatively to contextualize the quantitative results and inform implementation (Ongoing study).</p>
                         <div class="protect-badge" style="position: relative; margin-top: 10px;">🔒 Content Protected</div>
                     </div>
                 </div>
@@ -587,6 +595,7 @@
                         <span class="skill-tag">Clinical Research</span>
                         <span class="skill-tag">Project Management</span>
                         <span class="skill-tag">Excel & Data Visualization</span>
+                        <span class="skill-tag">Video Production</span>
                     </div>
                 </div>
                 <div class="skill-category">
@@ -598,6 +607,8 @@
                         <span class="skill-tag">Research Methodology</span>
                         <span class="skill-tag">Ophthalmology</span>
                         <span class="skill-tag">Rehabilitation Science</span>
+                        <span class="skill-tag">Patient Education</span>
+                        <span class="skill-tag">Surgical Care</span>
                     </div>
                 </div>
             </div>
