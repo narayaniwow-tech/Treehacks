@@ -1,200 +1,615 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Narayani Pathak - TreeHacks 2026 Portfolio</title>
-  <style>
-    :root {
-      --bg-primary: #0d1117;
-      --bg-secondary: #161b22;
-      --bg-tertiary: #21262d;
-      --border-color: #30363d;
-      --text-primary: #c9d1d9;
-      --text-secondary: #8b949e;
-      --accent-blue: #58a6ff;
-      --accent-green: #3fb950;
-      --accent-purple: #bc8cff;
-      --accent-red: #f85149;
-      --overlay-bg: rgba(13,17,23,0.9);
-      --space-xs: 0.5rem;
-      --space-sm: 1rem;
-      --space-md: 1.5rem;
-      --space-lg: 2rem;
-      --space-xl: 3rem;
-      --space-xxl: 4rem;
-      --font-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
-      --font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
-      --transition-fast: 0.2s ease;
-      --transition-normal: 0.3s ease;
-    }
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:var(--font-base);background:var(--bg-primary);color:var(--text-primary);line-height:1.6;overflow-x:hidden}
-    .container{max-width:1200px;margin:0 auto;padding:0 var(--space-lg)}
-    header{background:var(--bg-secondary);border-bottom:1px solid var(--border-color);padding:var(--space-md) 0;position:sticky;top:0;z-index:1000;backdrop-filter:blur(10px)}
-    nav{display:flex;justify-content:space-between;align-items:center}
-    .logo{font-size:1.5rem;font-weight:700;color:var(--accent-blue);text-decoration:none}
-    .nav-links{display:flex;gap:var(--space-lg);list-style:none}
-    .nav-links a{color:var(--text-primary);text-decoration:none;transition:color var(--transition-fast);font-weight:500}
-    .nav-links a:hover{color:var(--accent-blue)}
-    .hero{padding:var(--space-xxl) 0;text-align:center;background:linear-gradient(135deg,var(--bg-secondary) 0%,var(--bg-primary) 100%);border-bottom:1px solid var(--border-color)}
-    .hero h1{font-size:3rem;margin-bottom:var(--space-sm);background:linear-gradient(135deg,var(--accent-blue) 0%,var(--accent-purple) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-    .hero .subtitle{font-size:1.5rem;color:var(--text-secondary);margin-bottom:var(--space-sm)}
-    .hero .tagline{font-size:1.2rem;color:var(--accent-green);font-weight:600}
-    .badge{display:inline-block;padding:var(--space-xs) var(--space-md);background:var(--bg-tertiary);border:1px solid var(--border-color);border-radius:20px;margin-top:var(--space-md);font-size:.9rem;color:var(--accent-blue)}
-    section{padding:var(--space-xxl) 0;border-bottom:1px solid var(--border-color)}
-    section h2{font-size:2rem;margin-bottom:var(--space-lg);color:var(--text-primary);text-align:center}
-    .about-content{max-width:800px;margin:0 auto;font-size:1.1rem;line-height:1.8;color:var(--text-secondary);text-align:center}
-    .focus-areas{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:var(--space-md);margin-top:var(--space-lg)}
-    .focus-card{background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:8px;padding:var(--space-md);transition:transform var(--transition-fast),border-color var(--transition-fast);text-align:center}
-    .focus-card:hover{transform:translateY(-5px);border-color:var(--accent-blue)}
-    .focus-card h3{color:var(--accent-blue);margin-bottom:var(--space-xs)}
-    .certificates-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:var(--space-lg);margin-top:var(--space-lg)}
-    .certificate-card{position:relative;background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:8px;overflow:hidden;transition:transform var(--transition-fast),box-shadow var(--transition-fast)}
-    .certificate-card:hover{transform:translateY(-5px);box-shadow:0 10px 30px rgba(88,166,255,.2)}
-    .certificate-image-wrapper{position:relative;width:100%;height:250px;overflow:hidden;background:var(--bg-tertiary)}
-    .certificate-card iframe{width:100%;height:100%;border:none}
-    .certificate-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(88,166,255,.1) 0%,rgba(188,140,255,.1) 100%);pointer-events:none;display:flex;align-items:center;justify-content:center}
-    .certificate-content{padding:var(--space-md);text-align:center}
-    .certificate-content h3{color:var(--text-primary);margin-bottom:var(--space-xs)}
-    .certificate-content p{color:var(--text-secondary);font-size:.9rem}
-    .videos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(400px,1fr));gap:var(--space-lg);margin-top:var(--space-lg)}
-    .video-card{background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:8px;overflow:hidden;transition:transform var(--transition-fast),box-shadow var(--transition-fast)}
-    .video-card:hover{transform:translateY(-5px);box-shadow:0 10px 30px rgba(63,185,80,.2)}
-    .video-wrapper{position:relative;width:100%;padding-bottom:56.25%;background:var(--bg-tertiary)}
-    .video-wrapper iframe,.video-wrapper video{position:absolute;top:0;left:0;width:100%;height:100%;border:none;background:var(--bg-tertiary);object-fit:cover}
-    .video-content{padding:var(--space-md);text-align:center}
-    .video-content h3{color:var(--text-primary);margin-bottom:var(--space-xs)}
-    .video-content p{color:var(--text-secondary);font-size:.9rem;line-height:1.6}
-    .skills-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:var(--space-lg);margin-top:var(--space-lg)}
-    .skill-category{background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:8px;padding:var(--space-lg)}
-    .skill-category h3{color:var(--accent-green);margin-bottom:var(--space-md);text-align:center}
-    .skill-tags{display:flex;flex-wrap:wrap;gap:var(--space-xs);justify-content:center}
-    .skill-tag{background:var(--bg-tertiary);border:1px solid var(--border-color);padding:var(--space-xs) var(--space-sm);border-radius:16px;font-size:.9rem;color:var(--text-primary);transition:all var(--transition-fast)}
-    .skill-tag:hover{background:var(--accent-blue);color:var(--bg-primary);border-color:var(--accent-blue)}
-    @media(max-width:768px){.hero h1{font-size:2rem}.hero .subtitle{font-size:1.2rem}.nav-links{gap:var(--space-sm);font-size:.9rem}.videos-grid,.certificates-grid{grid-template-columns:1fr}}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Narayani Pathak - TreeHacks 2026 Portfolio</title>
+    <style>
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-tertiary: #21262d;
+            --border-color: #30363d;
+            --text-primary: #c9d1d9;
+            --text-secondary: #8b949e;
+            --accent-blue: #58a6ff;
+            --accent-green: #3fb950;
+            --accent-purple: #bc8cff;
+            --accent-red: #f85149;
+            --overlay-bg: rgba(13, 17, 23, 0.9);
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            --space-xxl: 4rem;
+            --font-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+            --font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+            --transition-fast: 0.2s ease;
+            --transition-normal: 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-base);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+        }
+        
+        /* HEADER & NAVIGATION */
+        header {
+            background-color: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            padding: var(--space-md) 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: var(--space-lg);
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+            font-weight: 500;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent-blue);
+        }
+        
+        /* HERO SECTION */
+        .hero {
+            padding: var(--space-xxl) 0;
+            text-align: center;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: var(--space-sm);
+            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .hero .tagline {
+            font-size: 1.2rem;
+            color: var(--accent-green);
+            font-weight: 600;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: var(--space-xs) var(--space-md);
+            background-color: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            margin-top: var(--space-md);
+            font-size: 0.9rem;
+            color: var(--accent-blue);
+        }
+        
+        /* SECTIONS */
+        section {
+            padding: var(--space-xxl) 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        section h2 {
+            font-size: 2rem;
+            margin-bottom: var(--space-lg);
+            color: var(--text-primary);
+            text-align: center;
+        }
+        
+        /* ABOUT SECTION */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            text-align: center;
+        }
+        
+        .focus-areas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-md);
+            margin-top: var(--space-lg);
+        }
+        
+        .focus-card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: var(--space-md);
+            transition: transform var(--transition-fast), border-color var(--transition-fast);
+            text-align: center;
+        }
+        
+        .focus-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-blue);
+        }
+        
+        .focus-card h3 {
+            color: var(--accent-blue);
+            margin-bottom: var(--space-xs);
+        }
+        
+        /* CERTIFICATES GRID */
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--space-lg);
+            margin-top: var(--space-lg);
+        }
+        
+        .certificate-card {
+            position: relative;
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+            cursor: pointer;
+        }
+        
+        .certificate-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(88, 166, 255, 0.2);
+        }
+        
+        .certificate-image-wrapper {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            background-color: var(--bg-tertiary);
+        }
+        
+        .certificate-card iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .protect-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--accent-blue);
+            color: var(--bg-primary);
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            z-index: 10;
+        }
+        
+        .certificate-content {
+            padding: var(--space-md);
+            text-align: center;
+        }
+        
+        .certificate-content h3 {
+            color: var(--text-primary);
+            margin-bottom: var(--space-xs);
+        }
+        
+        .certificate-content p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        /* VIDEO SECTION */
+        .videos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: var(--space-lg);
+            margin-top: var(--space-lg);
+        }
+        
+        .video-card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+        }
+        
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(63, 185, 80, 0.2);
+        }
+        
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            background-color: var(--bg-tertiary);
+            overflow: hidden;
+        }
+        
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .video-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background-color: #000;
+        }
+        
+        .video-content {
+            padding: var(--space-md);
+            text-align: center;
+        }
+        
+        .video-content h3 {
+            color: var(--text-primary);
+            margin-bottom: var(--space-xs);
+        }
+        
+        .video-content p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        /* SKILLS SECTION */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-lg);
+            margin-top: var(--space-lg);
+        }
+        
+        .skill-category {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: var(--space-lg);
+        }
+        
+        .skill-category h3 {
+            color: var(--accent-green);
+            margin-bottom: var(--space-md);
+            text-align: center;
+        }
+        
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-xs);
+            justify-content: center;
+        }
+        
+        .skill-tag {
+            background-color: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: 16px;
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            transition: all var(--transition-fast);
+        }
+        
+        .skill-tag:hover {
+            background-color: var(--accent-blue);
+            color: var(--bg-primary);
+            border-color: var(--accent-blue);
+        }
+        
+        /* TOAST NOTIFICATION */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--accent-red);
+            color: white;
+            padding: var(--space-md) var(--space-lg);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            display: none;
+            z-index: 10000;
+            animation: slideIn 0.3s ease;
+        }
+        
+        .toast.show {
+            display: block;
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .nav-links {
+                gap: var(--space-sm);
+                font-size: 0.9rem;
+            }
+            
+            .videos-grid,
+            .certificates-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <nav class="container">
-      <a href="#" class="logo">NP</a>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#certificates">Certificates</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
-      </ul>
-    </nav>
-  </header>
-  <section class="hero">
-    <div class="container">
-      <h1>Narayani Pathak</h1>
-      <p class="subtitle">Medical Sciences Honours | University of Sydney</p>
-      <p class="tagline">Innovating at the intersection of VR, Healthcare, and Technology</p>
-      <div class="badge">🌲 TreeHacks 2026 Application Portfolio</div>
+    <!-- HEADER -->
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">NP</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#certificates">Certificates</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <h1>Narayani Pathak</h1>
+            <p class="subtitle">Medical Sciences Honours | University of Sydney</p>
+            <p class="tagline">Innovating at the intersection of VR, Healthcare, and Technology</p>
+            <div class="badge">🌲 TreeHacks 2026 Application Portfolio</div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <p>I am a Medical Sciences Honours student at the University of Sydney, specializing in virtual reality applications in vision rehabilitation and healthcare innovation. My research focuses on leveraging emerging technologies to improve quality of life and functional independence for individuals with visual impairments. I completed my Bachelor of Clinical Science at Macquarie University and am currently pursuing a Bachelor of Medical Science (Honours) as a continuation of my undergraduate degree.</p>
+            </div>
+            <div class="focus-areas">
+                <div class="focus-card">
+                    <h3>🥽 VR in Healthcare</h3>
+                    <p>Developing VR-based simulations for vision rehabilitation and training</p>
+                </div>
+                <div class="focus-card">
+                    <h3>🔬 Clinical Research</h3>
+                    <p>Evidence-based research methodology in medical sciences</p>
+                </div>
+                <div class="focus-card">
+                    <h3>🤖 Healthcare AI</h3>
+                    <p>AI-driven innovations in orthopedics and medical technology</p>
+                </div>
+                <div class="focus-card">
+                    <h3>💡 Medical Innovation</h3>
+                    <p>Translating research into practical healthcare solutions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CERTIFICATES SECTION -->
+    <section id="certificates">
+        <div class="container">
+            <h2>Certificates & Achievements</h2>
+            <div class="certificates-grid">
+                <!-- Certificate 1: Judyth Sachs PACE Prize -->
+                <div class="certificate-card" onclick="window.open('https://drive.google.com/file/d/1Plpv3cfdZULsV7JI9-53BcJsq9a7a-M1/view', '_blank')">
+                    <div class="certificate-image-wrapper">
+                        <iframe src="https://drive.google.com/file/d/1Plpv3cfdZULsV7JI9-53BcJsq9a7a-M1/preview" allow="autoplay"></iframe>
+                        <div class="protect-badge">🔒 Click to View</div>
+                    </div>
+                    <div class="certificate-content">
+                        <h3>Judyth Sachs PACE Prize</h3>
+                        <p>Macquarie University | Recognizing outstanding achievement in professional and community engagement</p>
+                    </div>
+                </div>
+
+                <!-- Certificate 2: NSW Australia Leadership Program -->
+                <div class="certificate-card" onclick="window.open('https://drive.google.com/file/d/1wT7Dy60fE_sznhl6dZEV-A-jYwA5JUR3/view', '_blank')">
+                    <div class="certificate-image-wrapper">
+                        <iframe src="https://drive.google.com/file/d/1wT7Dy60fE_sznhl6dZEV-A-jYwA5JUR3/preview" allow="autoplay"></iframe>
+                        <div class="protect-badge">🔒 Click to View</div>
+                    </div>
+                    <div class="certificate-content">
+                        <h3>NSW Australia Leadership Program</h3>
+                        <p>Leadership program in policy making/changing for youth. Advocated for inequities in rural health.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects">
+        <div class="container">
+            <h2>Research Projects</h2>
+            <div class="videos-grid">
+                <!-- Project 1: VR Shopping Training -->
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <iframe src="https://drive.google.com/file/d/1kI9rj4ksAf9usvWINVVMQ32YvESmL5xU/preview" allow="autoplay" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-content">
+                        <h3>VR Shopping for Training and Rehabilitation</h3>
+                        <p>Current ongoing Honours thesis: To evaluate the perceived impact of a VR-based simulation as a training and assessment tool for older adults with visual impairments, to support functional independence in IADLs and quality of life.</p>
+                        <div class="protect-badge" style="position: relative; margin-top: 10px;">🔒 Content Protected</div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Pre-Operative Explainer Videos -->
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <video controls controlsList="nodownload" preload="metadata" playsinline>
+                            <source src="https://drive.google.com/uc?export=download&id=1RS-39LkO_p6jeH_MmvMIpMzhJ8Gw-MQO" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-content">
+                        <h3>Pre-Operative Patient Education Video Suite</h3>
+                        <p>A suite of pre-operative explainer videos "Deciding on Surgery, Getting Ready, Getting Organised for Hospital, Hospital Stay, and Recovery", has been developed to empower patients through every step of their surgical journey. This evaluation study investigates how these videos influence key behavioural and experiential outcomes among elective surgical patients within the Sydney Local Health District, including anxiety reduction, confidence in decision-making, overall care experience, and early postoperative recovery. The study also captures carers' emotional responses and clinicians' perspectives to provide deeper insight into how these resources shape engagement, trust, and preparedness across the surgical pathway. (Only a small part of the videos is attached, and the full videos are not yet publicly available.)</p>
+                        <div class="protect-badge" style="position: relative; margin-top: 10px;">🔒 Content Protected</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills">
+        <div class="container">
+            <h2>Skills & Expertise</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Technical Skills</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Data Analysis</span>
+                        <span class="skill-tag">VR Development</span>
+                        <span class="skill-tag">Clinical Research</span>
+                        <span class="skill-tag">Project Management</span>
+                        <span class="skill-tag">Excel & Data Visualization</span>
+                        <span class="skill-tag">Video Production</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Domain Expertise</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Vision Science</span>
+                        <span class="skill-tag">Healthcare Innovation</span>
+                        <span class="skill-tag">Medical Technology</span>
+                        <span class="skill-tag">Research Methodology</span>
+                        <span class="skill-tag">Ophthalmology</span>
+                        <span class="skill-tag">Rehabilitation Science</span>
+                        <span class="skill-tag">Patient Education</span>
+                        <span class="skill-tag">Surgical Care</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TOAST NOTIFICATION -->
+    <div class="toast" id="toast">
+        🔒 Content is protected
     </div>
-  </section>
-  <section id="about">
-    <div class="container">
-      <h2>About Me</h2>
-      <div class="about-content">
-        <p>I am a Medical Sciences Honours student at the University of Sydney, specializing in virtual reality applications in vision rehabilitation and healthcare innovation. My research focuses on leveraging emerging technologies to improve quality of life and functional independence for individuals with visual impairments. I completed my Bachelor of Clinical Science at Macquarie University and am currently pursuing a Bachelor of Medical Science (Honours) as a continuation of my undergraduate degree.</p>
-      </div>
-      <div class="focus-areas">
-        <div class="focus-card"><h3>🥽 VR in Healthcare</h3><p>Developing VR-based simulations for vision rehabilitation and training</p></div>
-        <div class="focus-card"><h3>🔬 Clinical Research</h3><p>Evidence-based research methodology in medical sciences</p></div>
-        <div class="focus-card"><h3>🤖 Healthcare AI</h3><p>AI-driven innovations in orthopedics and medical technology</p></div>
-        <div class="focus-card"><h3>💡 Medical Innovation</h3><p>Translating research into practical healthcare solutions</p></div>
-      </div>
-    </div>
-  </section>
-  <section id="certificates">
-    <div class="container">
-      <h2>Certificates &amp; Achievements</h2>
-      <div class="certificates-grid">
-        <div class="certificate-card">
-          <div class="certificate-image-wrapper">
-            <iframe src="https://drive.google.com/file/d/1Plpv3cfdZULsV7JI9-53BcJsq9a7a-M1/preview" allow="autoplay"></iframe>
-            <div class="certificate-overlay"></div>
-          </div>
-          <div class="certificate-content">
-            <h3>Judyth Sachs PACE Prize</h3>
-            <p>Macquarie University | Recognizing outstanding achievement in professional and community engagement</p>
-          </div>
-        </div>
-        <div class="certificate-card">
-          <div class="certificate-image-wrapper">
-            <iframe src="https://drive.google.com/file/d/1wT7Dy60fE_sznhl6dZEV-A-jYwA5JUR3/preview" allow="autoplay"></iframe>
-            <div class="certificate-overlay"></div>
-          </div>
-          <div class="certificate-content">
-            <h3>NSW Australia Leadership Program</h3>
-            <p>Leadership program in policy making/changing for youth. Advocated for inequities in rural health.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section id="projects">
-    <div class="container">
-      <h2>Research Projects</h2>
-      <div class="videos-grid">
-        <div class="video-card">
-          <div class="video-wrapper">
-            <iframe src="https://drive.google.com/file/d/1kI9rj4ksAf9usvWINVVMQ32YvESmL5xU/preview" allow="autoplay" allowfullscreen></iframe>
-          </div>
-          <div class="video-content">
-            <h3>VR Shopping for Training and Rehabilitation</h3>
-            <p>Current ongoing Honours thesis: To evaluate the perceived impact of a VR-based simulation as a training and assessment tool for older adults with visual impairments, to support functional independence in IADLs and quality of life.</p>
-          </div>
-        </div>
-        <div class="video-card">
-          <div class="video-wrapper">
-            <video controls preload="metadata" playsinline>
-              <source src="https://files.catbox.moe/5z7n9m.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </div>
-          <div class="video-content">
-            <h3>Pre-Operative Patient Education Video Suite</h3>
-            <p>A suite of pre-operative explainer videos "Deciding on Surgery, Getting Ready, Getting Organised for Hospital, Hospital Stay, and Recovery", has been developed to empower patients through every step of their surgical journey. This evaluation study investigates how these videos influence key behavioural and experiential outcomes among elective surgical patients within the Sydney Local Health District, including anxiety reduction, confidence in decision-making, overall care experience, and early postoperative recovery. The study also captures carers’ emotional responses and clinicians’ perspectives to provide deeper insight into how these resources shape engagement, trust, and preparedness across the surgical pathway. (Only a small part of the videos is attached, and the full videos are not yet publicly available.)</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section id="skills">
-    <div class="container">
-      <h2>Skills &amp; Expertise</h2>
-      <div class="skills-container">
-        <div class="skill-category">
-          <h3>Technical Skills</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">Data Analysis</span>
-            <span class="skill-tag">VR Development</span>
-            <span class="skill-tag">Clinical Research</span>
-            <span class="skill-tag">Project Management</span>
-            <span class="skill-tag">Excel &amp; Data Visualization</span>
-            <span class="skill-tag">Video Production</span>
-          </div>
-        </div>
-        <div class="skill-category">
-          <h3>Domain Expertise</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">Vision Science</span>
-            <span class="skill-tag">Healthcare Innovation</span>
-            <span class="skill-tag">Medical Technology</span>
-            <span class="skill-tag">Research Methodology</span>
-            <span class="skill-tag">Ophthalmology</span>
-            <span class="skill-tag">Rehabilitation Science</span>
-            <span class="skill-tag">Patient Education</span>
-            <span class="skill-tag">Surgical Care</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+
+    <!-- JAVASCRIPT FOR PROTECTION -->
+    <script>
+        // Disable right-click on videos
+        document.addEventListener('contextmenu', function(e) {
+            if (e.target.tagName === 'VIDEO' || e.target.tagName === 'IFRAME') {
+                e.preventDefault();
+                showToast();
+            }
+        });
+
+        // Disable keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            if (e.keyCode == 123 || 
+                (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74)) ||
+                (e.ctrlKey && e.keyCode == 85) ||
+                (e.ctrlKey && e.keyCode == 83)) {
+                e.preventDefault();
+                showToast();
+                return false;
+            }
+        });
+
+        // Show toast notification
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.add('show');
+            setTimeout(function() {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Console warning
+        console.log('%c⚠️ Content Protection Active', 'color: #f85149; font-size: 20px; font-weight: bold;');
+        console.log('%cThis portfolio contains protected content.', 'color: #8b949e; font-size: 14px;');
+    </script>
 </body>
 </html>
