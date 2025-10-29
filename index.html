@@ -16,7 +16,6 @@
             --accent-green: #3fb950;
             --accent-purple: #bc8cff;
             --accent-red: #f85149;
-            --overlay-bg: rgba(13, 17, 23, 0.9);
             --space-xs: 0.5rem;
             --space-sm: 1rem;
             --space-md: 1.5rem;
@@ -24,16 +23,11 @@
             --space-xl: 3rem;
             --space-xxl: 4rem;
             --font-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
-            --font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
             --transition-fast: 0.2s ease;
             --transition-normal: 0.3s ease;
         }
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
             font-family: var(--font-base);
@@ -43,13 +37,8 @@
             overflow-x: hidden;
         }
         
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 var(--space-lg);
-        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 var(--space-lg); }
         
-        /* HEADER & NAVIGATION */
         header {
             background-color: var(--bg-secondary);
             border-bottom: 1px solid var(--border-color);
@@ -60,37 +49,12 @@
             backdrop-filter: blur(10px);
         }
         
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--accent-blue); text-decoration: none; }
+        .nav-links { display: flex; gap: var(--space-lg); list-style: none; }
+        .nav-links a { color: var(--text-primary); text-decoration: none; transition: color var(--transition-fast); font-weight: 500; }
+        .nav-links a:hover { color: var(--accent-blue); }
         
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--accent-blue);
-            text-decoration: none;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: var(--space-lg);
-            list-style: none;
-        }
-        
-        .nav-links a {
-            color: var(--text-primary);
-            text-decoration: none;
-            transition: color var(--transition-fast);
-            font-weight: 500;
-        }
-        
-        .nav-links a:hover {
-            color: var(--accent-blue);
-        }
-        
-        /* HERO SECTION */
         .hero {
             padding: var(--space-xxl) 0;
             text-align: center;
@@ -107,17 +71,8 @@
             background-clip: text;
         }
         
-        .hero .subtitle {
-            font-size: 1.5rem;
-            color: var(--text-secondary);
-            margin-bottom: var(--space-sm);
-        }
-        
-        .hero .tagline {
-            font-size: 1.2rem;
-            color: var(--accent-green);
-            font-weight: 600;
-        }
+        .hero .subtitle { font-size: 1.5rem; color: var(--text-secondary); margin-bottom: var(--space-sm); }
+        .hero .tagline { font-size: 1.2rem; color: var(--accent-green); font-weight: 600; }
         
         .badge {
             display: inline-block;
@@ -130,20 +85,9 @@
             color: var(--accent-blue);
         }
         
-        /* SECTIONS */
-        section {
-            padding: var(--space-xxl) 0;
-            border-bottom: 1px solid var(--border-color);
-        }
+        section { padding: var(--space-xxl) 0; border-bottom: 1px solid var(--border-color); }
+        section h2 { font-size: 2rem; margin-bottom: var(--space-lg); color: var(--text-primary); text-align: center; }
         
-        section h2 {
-            font-size: 2rem;
-            margin-bottom: var(--space-lg);
-            color: var(--text-primary);
-            text-align: center;
-        }
-        
-        /* ABOUT SECTION */
         .about-content {
             max-width: 800px;
             margin: 0 auto;
@@ -169,17 +113,9 @@
             text-align: center;
         }
         
-        .focus-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-blue);
-        }
+        .focus-card:hover { transform: translateY(-5px); border-color: var(--accent-blue); }
+        .focus-card h3 { color: var(--accent-blue); margin-bottom: var(--space-xs); }
         
-        .focus-card h3 {
-            color: var(--accent-blue);
-            margin-bottom: var(--space-xs);
-        }
-        
-        /* CERTIFICATES GRID */
         .certificates-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -197,24 +133,17 @@
             cursor: pointer;
         }
         
-        .certificate-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(88, 166, 255, 0.2);
-        }
+        .certificate-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(88, 166, 255, 0.2); }
         
         .certificate-image-wrapper {
             position: relative;
             width: 100%;
-            height: 300px;
+            height: 400px;
             overflow: hidden;
             background-color: var(--bg-tertiary);
         }
         
-        .certificate-card iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
+        .certificate-card iframe { width: 100%; height: 100%; border: none; }
         
         .protect-badge {
             position: absolute;
@@ -229,22 +158,10 @@
             z-index: 10;
         }
         
-        .certificate-content {
-            padding: var(--space-md);
-            text-align: center;
-        }
+        .certificate-content { padding: var(--space-md); text-align: center; }
+        .certificate-content h3 { color: var(--text-primary); margin-bottom: var(--space-xs); }
+        .certificate-content p { color: var(--text-secondary); font-size: 0.9rem; }
         
-        .certificate-content h3 {
-            color: var(--text-primary);
-            margin-bottom: var(--space-xs);
-        }
-        
-        .certificate-content p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-        
-        /* VIDEO SECTION */
         .videos-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
@@ -260,10 +177,7 @@
             transition: transform var(--transition-fast), box-shadow var(--transition-fast);
         }
         
-        .video-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(63, 185, 80, 0.2);
-        }
+        .video-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(63, 185, 80, 0.2); }
         
         .video-wrapper {
             position: relative;
@@ -282,33 +196,10 @@
             border: none;
         }
         
-        .video-wrapper video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            background-color: #000;
-        }
+        .video-content { padding: var(--space-md); text-align: center; }
+        .video-content h3 { color: var(--text-primary); margin-bottom: var(--space-xs); }
+        .video-content p { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6; }
         
-        .video-content {
-            padding: var(--space-md);
-            text-align: center;
-        }
-        
-        .video-content h3 {
-            color: var(--text-primary);
-            margin-bottom: var(--space-xs);
-        }
-        
-        .video-content p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            line-height: 1.6;
-        }
-        
-        /* SKILLS SECTION */
         .skills-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -323,18 +214,8 @@
             padding: var(--space-lg);
         }
         
-        .skill-category h3 {
-            color: var(--accent-green);
-            margin-bottom: var(--space-md);
-            text-align: center;
-        }
-        
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: var(--space-xs);
-            justify-content: center;
-        }
+        .skill-category h3 { color: var(--accent-green); margin-bottom: var(--space-md); text-align: center; }
+        .skill-tags { display: flex; flex-wrap: wrap; gap: var(--space-xs); justify-content: center; }
         
         .skill-tag {
             background-color: var(--bg-tertiary);
@@ -346,13 +227,8 @@
             transition: all var(--transition-fast);
         }
         
-        .skill-tag:hover {
-            background-color: var(--accent-blue);
-            color: var(--bg-primary);
-            border-color: var(--accent-blue);
-        }
+        .skill-tag:hover { background-color: var(--accent-blue); color: var(--bg-primary); border-color: var(--accent-blue); }
         
-        /* TOAST NOTIFICATION */
         .toast {
             position: fixed;
             bottom: 20px;
@@ -367,45 +243,22 @@
             animation: slideIn 0.3s ease;
         }
         
-        .toast.show {
-            display: block;
-        }
+        .toast.show { display: block; }
         
         @keyframes slideIn {
-            from {
-                transform: translateX(400px);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
+            from { transform: translateX(400px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
         }
         
-        /* RESPONSIVE */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero .subtitle {
-                font-size: 1.2rem;
-            }
-            
-            .nav-links {
-                gap: var(--space-sm);
-                font-size: 0.9rem;
-            }
-            
-            .videos-grid,
-            .certificates-grid {
-                grid-template-columns: 1fr;
-            }
+            .hero h1 { font-size: 2rem; }
+            .hero .subtitle { font-size: 1.2rem; }
+            .nav-links { gap: var(--space-sm); font-size: 0.9rem; }
+            .videos-grid, .certificates-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <!-- HEADER -->
     <header>
         <nav class="container">
             <a href="#" class="logo">NP</a>
@@ -418,7 +271,6 @@
         </nav>
     </header>
 
-    <!-- HERO SECTION -->
     <section class="hero">
         <div class="container">
             <h1>Narayani Pathak</h1>
@@ -428,7 +280,6 @@
         </div>
     </section>
 
-    <!-- ABOUT SECTION -->
     <section id="about">
         <div class="container">
             <h2>About Me</h2>
@@ -456,24 +307,21 @@
         </div>
     </section>
 
-    <!-- CERTIFICATES SECTION -->
     <section id="certificates">
         <div class="container">
             <h2>Certificates & Achievements</h2>
             <div class="certificates-grid">
-                <!-- Certificate 1: Judyth Sachs PACE Prize -->
-                <div class="certificate-card" onclick="window.open('https://drive.google.com/file/d/1Plpv3cfdZULsV7JI9-53BcJsq9a7a-M1/view', '_blank')">
+                <div class="certificate-card" onclick="window.open('https://drive.google.com/file/d/14j8ezYPQ4YNzlCmpvHbFp5Wp4YzP8WdB/view', '_blank')">
                     <div class="certificate-image-wrapper">
-                        <iframe src="https://drive.google.com/file/d/1Plpv3cfdZULsV7JI9-53BcJsq9a7a-M1/preview" allow="autoplay"></iframe>
+                        <iframe src="https://drive.google.com/file/d/14j8ezYPQ4YNzlCmpvHbFp5Wp4YzP8WdB/preview" allow="autoplay"></iframe>
                         <div class="protect-badge">🔒 Click to View</div>
                     </div>
                     <div class="certificate-content">
-                        <h3>Judyth Sachs PACE Prize</h3>
-                        <p>Macquarie University | Recognizing outstanding achievement in professional and community engagement</p>
+                        <h3>Professor Judyth Sachs PACE Prize 2024</h3>
+                        <p>Macquarie University | Winner for outstanding achievement in a work integrated learning activity undertaken within a Professional and Community Engagement (PACE) Unit</p>
                     </div>
                 </div>
 
-                <!-- Certificate 2: NSW Australia Leadership Program -->
                 <div class="certificate-card" onclick="window.open('https://drive.google.com/file/d/1wT7Dy60fE_sznhl6dZEV-A-jYwA5JUR3/view', '_blank')">
                     <div class="certificate-image-wrapper">
                         <iframe src="https://drive.google.com/file/d/1wT7Dy60fE_sznhl6dZEV-A-jYwA5JUR3/preview" allow="autoplay"></iframe>
@@ -488,12 +336,10 @@
         </div>
     </section>
 
-    <!-- PROJECTS SECTION -->
     <section id="projects">
         <div class="container">
             <h2>Research Projects</h2>
             <div class="videos-grid">
-                <!-- Project 1: VR Shopping Training -->
                 <div class="video-card">
                     <div class="video-wrapper">
                         <iframe src="https://drive.google.com/file/d/1kI9rj4ksAf9usvWINVVMQ32YvESmL5xU/preview" allow="autoplay" allowfullscreen></iframe>
@@ -505,13 +351,9 @@
                     </div>
                 </div>
 
-                <!-- Project 2: Pre-Operative Explainer Videos -->
                 <div class="video-card">
                     <div class="video-wrapper">
-                        <video controls controlsList="nodownload" preload="metadata" playsinline>
-                            <source src="https://drive.google.com/uc?export=download&id=1RS-39LkO_p6jeH_MmvMIpMzhJ8Gw-MQO" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
+                        <iframe src="https://drive.google.com/file/d/1TFph4svM2TjjUKN79pj2wAijZksKxnLR/preview" allow="autoplay" allowfullscreen></iframe>
                     </div>
                     <div class="video-content">
                         <h3>Pre-Operative Patient Education Video Suite</h3>
@@ -523,7 +365,6 @@
         </div>
     </section>
 
-    <!-- SKILLS SECTION -->
     <section id="skills">
         <div class="container">
             <h2>Skills & Expertise</h2>
@@ -557,22 +398,16 @@
         </div>
     </section>
 
-    <!-- TOAST NOTIFICATION -->
-    <div class="toast" id="toast">
-        🔒 Content is protected
-    </div>
+    <div class="toast" id="toast">🔒 Content is protected</div>
 
-    <!-- JAVASCRIPT FOR PROTECTION -->
     <script>
-        // Disable right-click on videos
         document.addEventListener('contextmenu', function(e) {
-            if (e.target.tagName === 'VIDEO' || e.target.tagName === 'IFRAME') {
+            if (e.target.tagName === 'VIDEO' || e.target.tagName === 'IFRAME' || e.target.tagName === 'IMG') {
                 e.preventDefault();
                 showToast();
             }
         });
 
-        // Disable keyboard shortcuts
         document.addEventListener('keydown', function(e) {
             if (e.keyCode == 123 || 
                 (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74)) ||
@@ -584,30 +419,20 @@
             }
         });
 
-        // Show toast notification
         function showToast() {
             const toast = document.getElementById('toast');
             toast.classList.add('show');
-            setTimeout(function() {
-                toast.classList.remove('show');
-            }, 3000);
+            setTimeout(function() { toast.classList.remove('show'); }, 3000);
         }
 
-        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+                if (target) { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
             });
         });
 
-        // Console warning
         console.log('%c⚠️ Content Protection Active', 'color: #f85149; font-size: 20px; font-weight: bold;');
         console.log('%cThis portfolio contains protected content.', 'color: #8b949e; font-size: 14px;');
     </script>
