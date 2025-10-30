@@ -100,34 +100,20 @@
         .profile-photo-wrapper {
             flex-shrink: 0;
             position: relative;
-            width: 200px;
-            height: 200px;
-        }
-        
-        .profile-photo-wrapper iframe {
-            width: 100%;
-            height: 100%;
+            width: 220px;
+            height: 220px;
             border-radius: 50%;
+            overflow: hidden;
             border: 4px solid var(--accent-blue);
             box-shadow: 0 8px 24px rgba(88, 166, 255, 0.3);
-            pointer-events: none;
         }
         
-        .profile-photo-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
+        .profile-photo-wrapper img {
             width: 100%;
             height: 100%;
-            border-radius: 50%;
-            border: 4px solid var(--accent-blue);
-            pointer-events: none;
-            transition: transform var(--transition-normal), box-shadow var(--transition-normal);
-        }
-        
-        .profile-photo-wrapper:hover .profile-photo-overlay {
-            transform: scale(1.05);
-            box-shadow: 0 12px 32px rgba(88, 166, 255, 0.4);
+            object-fit: cover;
+            object-position: center 35%;
+            display: block;
         }
         
         .about-content {
@@ -298,7 +284,7 @@
             .videos-grid, .certificates-grid { grid-template-columns: 1fr; }
             .about-wrapper { flex-direction: column; text-align: center; }
             .about-content { text-align: center; }
-            .profile-photo-wrapper { width: 180px; height: 180px; }
+            .profile-photo-wrapper { width: 200px; height: 200px; }
         }
     </style>
 </head>
@@ -329,8 +315,7 @@
             <h2>About Me</h2>
             <div class="about-wrapper">
                 <div class="profile-photo-wrapper">
-                    <iframe src="https://drive.google.com/file/d/1R1W2OP4cnzYCblqdXPWXFokLh_9yRkCv/preview" frameborder="0"></iframe>
-                    <div class="profile-photo-overlay"></div>
+                    <img src="https://drive.google.com/uc?export=view&id=1hm1rKecmUv2A7ZrEfVe7wt8nVHAQpiTx" alt="Narayani Pathak with dog">
                 </div>
                 <div class="about-content">
                     <p>I am a Medical Sciences Honours student at the University of Sydney, specializing in virtual reality applications in vision rehabilitation and healthcare innovation. My research focuses on leveraging emerging technologies to improve quality of life and functional independence for individuals with visual impairments. I completed my Bachelor of Clinical Science at Macquarie University and am currently pursuing a Bachelor of Medical Science (Honours) as a continuation of my undergraduate degree.</p>
@@ -390,7 +375,6 @@
                     <div class="video-content">
                         <h3>Australian Lymphoedema Education, Research and Treatment (Macquarie Hospital)</h3>
                         <p>Developing precision-rehabilitation research in a novel study applying AI with indocyanine green (ICG) lymphography to customise compression therapy for lymphoedema. Applying predictive modelling and imaging analytics to map lymphatic flow, refine garment pressure gradients, and support personalised intervention design for cancer-associated lymphatic impairment. (Attached poster is early stages of research, the work with AI analysis is ongoing study).</p>
-                        <div class="protect-badge" style="position: relative; margin-top: 10px;">🔒 Content Protected</div>
                     </div>
                 </div>
 
@@ -399,9 +383,8 @@
                         <iframe src="https://drive.google.com/file/d/1k6-Wg3IAOCACifvWCQi2KX7n7GRmabx8/preview" allow="autoplay" allowfullscreen></iframe>
                     </div>
                     <div class="video-content">
-                        <h3>COVID-19 & Non-Communicable Diseases Syndemic (A WHO Project)</h3>
-                        <p>Conducted a large-scale, evidence-driven review of syndemic links between COVID-19 and non-communicable diseases (NCDs) in low- and middle-income countries to support WHO priorities in digital health and equity. Delivered findings at the Global Health Challenge Poster Competition. Currently, policy prospective discourse on AI-supported surveillance, precision health systems is in action.</p>
-                        <div class="protect-badge" style="position: relative; margin-top: 10px;">🔒 Content Protected</div>
+                        <h3>COVID-19 & Non-Communicable Diseases Syndemic (A Global Health Initiative)</h3>
+                        <p>Conducted a large-scale, evidence-driven review of syndemic links between COVID-19 and non-communicable diseases (NCDs) in low- and middle-income countries to support global health priorities in digital health and equity. Delivered findings at the Global Health Challenge Poster Competition. Currently, policy prospective discourse on AI-supported surveillance, precision health systems is in action.</p>
                     </div>
                 </div>
             </div>
@@ -415,7 +398,6 @@
                 <div class="certificate-card" onclick="window.open('https://drive.google.com/file/d/14j8ezYPQ4YNzlCmpvHbFp5Wp4YzP8WdB/view?usp=sharing', '_blank')">
                     <div class="certificate-image-wrapper">
                         <iframe src="https://drive.google.com/file/d/14j8ezYPQ4YNzlCmpvHbFp5Wp4YzP8WdB/preview" allow="autoplay"></iframe>
-                        <div class="protect-badge">🔒 Click to View</div>
                     </div>
                     <div class="certificate-content">
                         <h3>Professor Judyth Sachs PACE Prize 2024</h3>
@@ -426,7 +408,6 @@
                 <div class="certificate-card" onclick="window.open('https://drive.google.com/file/d/1wT7Dy60fE_sznhl6dZEV-A-jYwA5JUR3/view?usp=sharing', '_blank')">
                     <div class="certificate-image-wrapper">
                         <iframe src="https://drive.google.com/file/d/1wT7Dy60fE_sznhl6dZEV-A-jYwA5JUR3/preview" allow="autoplay"></iframe>
-                        <div class="protect-badge">🔒 Click to View</div>
                     </div>
                     <div class="certificate-content">
                         <h3>NSW Australia Leadership Program</h3>
