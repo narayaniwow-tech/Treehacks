@@ -108,12 +108,14 @@
             box-shadow: 0 8px 24px rgba(88, 166, 255, 0.3);
         }
         
-        .profile-photo-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center 35%;
-            display: block;
+        .profile-photo-wrapper iframe {
+            position: absolute;
+            top: -60px;
+            left: -60px;
+            width: 340px;
+            height: 340px;
+            border: none;
+            pointer-events: none;
         }
         
         .about-content {
@@ -285,6 +287,7 @@
             .about-wrapper { flex-direction: column; text-align: center; }
             .about-content { text-align: center; }
             .profile-photo-wrapper { width: 200px; height: 200px; }
+            .profile-photo-wrapper iframe { top: -50px; left: -50px; width: 300px; height: 300px; }
         }
     </style>
 </head>
@@ -315,7 +318,7 @@
             <h2>About Me</h2>
             <div class="about-wrapper">
                 <div class="profile-photo-wrapper">
-                    <img src="https://drive.google.com/uc?export=view&id=1hm1rKecmUv2A7ZrEfVe7wt8nVHAQpiTx" alt="Narayani Pathak with dog">
+                    <iframe src="https://drive.google.com/file/d/1hm1rKecmUv2A7ZrEfVe7wt8nVHAQpiTx/preview" frameborder="0"></iframe>
                 </div>
                 <div class="about-content">
                     <p>I am a Medical Sciences Honours student at the University of Sydney, specializing in virtual reality applications in vision rehabilitation and healthcare innovation. My research focuses on leveraging emerging technologies to improve quality of life and functional independence for individuals with visual impairments. I completed my Bachelor of Clinical Science at Macquarie University and am currently pursuing a Bachelor of Medical Science (Honours) as a continuation of my undergraduate degree.</p>
