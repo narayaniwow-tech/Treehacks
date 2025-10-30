@@ -88,13 +88,41 @@
         section { padding: var(--space-xxl) 0; border-bottom: 1px solid var(--border-color); }
         section h2 { font-size: 2rem; margin-bottom: var(--space-lg); color: var(--text-primary); text-align: center; }
         
+        /* About Section with Profile Photo */
+        .about-wrapper {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xl);
+            max-width: 1000px;
+            margin: 0 auto var(--space-xl) auto;
+        }
+        
+        .profile-photo-wrapper {
+            flex-shrink: 0;
+        }
+        
+        .profile-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center 30%;
+            border: 4px solid var(--accent-blue);
+            box-shadow: 0 8px 24px rgba(88, 166, 255, 0.3);
+            transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+        }
+        
+        .profile-photo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 32px rgba(88, 166, 255, 0.4);
+        }
+        
         .about-content {
-            max-width: 800px;
-            margin: 0 auto;
+            flex: 1;
             font-size: 1.1rem;
             line-height: 1.8;
             color: var(--text-secondary);
-            text-align: center;
+            text-align: left;
         }
         
         .focus-areas {
@@ -255,6 +283,9 @@
             .hero .subtitle { font-size: 1.2rem; }
             .nav-links { gap: var(--space-sm); font-size: 0.9rem; }
             .videos-grid, .certificates-grid { grid-template-columns: 1fr; }
+            .about-wrapper { flex-direction: column; text-align: center; }
+            .about-content { text-align: center; }
+            .profile-photo { width: 180px; height: 180px; }
         }
     </style>
 </head>
@@ -283,8 +314,16 @@
     <section id="about">
         <div class="container">
             <h2>About Me</h2>
-            <div class="about-content">
-                <p>I am a Medical Sciences Honours student at the University of Sydney, specializing in virtual reality applications in vision rehabilitation and healthcare innovation. My research focuses on leveraging emerging technologies to improve quality of life and functional independence for individuals with visual impairments. I completed my Bachelor of Clinical Science at Macquarie University and am currently pursuing a Bachelor of Medical Science (Honours) as a continuation of my undergraduate degree.</p>
+            <div class="about-wrapper">
+                <div class="profile-photo-wrapper">
+                    <!-- IMPORTANT: Upload FullSizeRender.jpg to your GitHub repo -->
+                    <!-- Create a folder called 'images' and upload the photo there -->
+                    <!-- Then the src will be: images/FullSizeRender.jpg -->
+                    <img src="images/FullSizeRender.jpg" alt="Narayani Pathak" class="profile-photo">
+                </div>
+                <div class="about-content">
+                    <p>I am a Medical Sciences Honours student at the University of Sydney, specializing in virtual reality applications in vision rehabilitation and healthcare innovation. My research focuses on leveraging emerging technologies to improve quality of life and functional independence for individuals with visual impairments. I completed my Bachelor of Clinical Science at Macquarie University and am currently pursuing a Bachelor of Medical Science (Honours) as a continuation of my undergraduate degree.</p>
+                </div>
             </div>
             <div class="focus-areas">
                 <div class="focus-card">
@@ -330,7 +369,7 @@
                     </div>
                     <div class="video-content">
                         <h3>Pre-Operative Patient Education Video Suite (A Sydney Local Health District Initiative)</h3>
-                        <p>A suite of pre-operative explainer videos "Deciding on Surgery, Getting Ready, Getting Organised for Hospital, Hospital Stay, and Recovery", has been developed to empower patients through every step of their surgical journey. This evaluation study investigates how these videos influence key behavioural and experiential outcomes among elective surgical patients within the Sydney Local Health District, including anxiety reduction, confidence in decision-making, overall care experience, and early postoperative recovery. The study also captures carers' emotional responses and clinicians' perspectives to provide deeper insight into how these resources shape engagement, trust, and preparedness across the surgical pathway. (Only a small part of the videos is attached, and the full videos are not yet publicly available.)</p>
+                        <p>A suite of pre-operative explainer videos "Deciding on Surgery, Getting Ready, Getting Organised for Hospital, Hospital Stay, and Recovery", has been developed to empower patients through every step of their surgical journey. This evaluation study led by a Harkness fellow, in collaboration with Surgeons, nurses and researchers investigates how these videos influence key behavioural and experiential outcomes among elective surgical patients within the Sydney Local Health District, including anxiety reduction, confidence in decision-making, overall care experience, and early postoperative recovery. The study also captures carers' emotional responses and clinicians' perspectives to provide deeper insight into how these resources shape engagement, trust, and preparedness across the surgical pathway. (Only a small part of the videos is attached, and the full videos are not yet publicly available.)</p>
                         <div class="protect-badge" style="position: relative; margin-top: 10px;">🔒 Content Protected</div>
                     </div>
                 </div>
@@ -341,7 +380,7 @@
                         <iframe src="https://drive.google.com/file/d/104mN4Lvb6taq8-zoT0GJaZDcWl6THzVU/preview" allow="autoplay" allowfullscreen></iframe>
                     </div>
                     <div class="video-content">
-                        <h3>Australian Lymphoedema Education, Research and Treatment(Macquarie Hospital)</h3>
+                        <h3>Australian Lymphoedema Education, Research and Treatment (Macquarie Hospital)</h3>
                         <p>Developing precision-rehabilitation research in a novel study applying AI with indocyanine green (ICG) lymphography to customise compression therapy for lymphoedema. Applying predictive modelling and imaging analytics to map lymphatic flow, refine garment pressure gradients, and support personalised intervention design for cancer-associated lymphatic impairment. (Attached poster is early stages of research, the work with AI analysis is ongoing study).</p>
                         <div class="protect-badge" style="position: relative; margin-top: 10px;">🔒 Content Protected</div>
                     </div>
@@ -373,7 +412,7 @@
                     </div>
                     <div class="certificate-content">
                         <h3>Professor Judyth Sachs PACE Prize 2024</h3>
-                        <p>Macquarie University | Winner for outstanding achievement in a work integrated learning activity undertaken within a Professional and Community Engagement (PACE) Unit</p>
+                        <p>Macquarie University | Winner for outstanding achievement in a work integrated learning activity undertaken within a Professional and Community Engagement (PACE) Unit. Recognition for excellence in clinical innovation and leadership.</p>
                     </div>
                 </div>
 
@@ -407,6 +446,8 @@
                         <span class="skill-tag">Video Production</span>
                         <span class="skill-tag">AI & Machine Learning</span>
                         <span class="skill-tag">Predictive Modelling</span>
+                        <span class="skill-tag">Leadership and collaboration</span>
+                        <span class="skill-tag">Public speaking</span>
                     </div>
                 </div>
                 <div class="skill-category">
@@ -463,9 +504,6 @@
                 if (target) { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
             });
         });
-
-        console.log('%c⚠️ Content Protection Active', 'color: #f85149; font-size: 20px; font-weight: bold;');
-        console.log('%cThis portfolio contains protected content.', 'color: #8b949e; font-size: 14px;');
     </script>
 </body>
 </html>
